@@ -240,4 +240,18 @@ body.dark .description-container {
     font-size: 0.9rem; /* Kurangi ukuran font fakta menarik */
     padding: 0.5rem; /* Sesuaikan padding */
   }
+
+  #next-season {
+    bottom: 2rem; /* Naikkan posisi tombol */
+    right: 1rem; /* Tambahkan jarak dari kanan */
+  }
+
+  #back-to-home {
+    bottom: 2rem; /* Naikkan posisi tombol */
+    left: 1rem; /* Tambahkan jarak dari kiri */
+  }
+
+  #fun-fact-container {
+    margin-bottom: 4rem; /* Tambahkan margin bawah agar tidak menutupi tombol */
+  }
 }
