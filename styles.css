@@ -180,6 +180,8 @@ body.light button:hover {
 /* Gaya untuk tombol */
 button {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0.5rem 1rem; /* Sesuaikan ukuran tombol */
+  font-size: 0.9rem; /* Kurangi ukuran font */
 }
 
 button:hover {
@@ -189,7 +191,7 @@ button:hover {
 
 /* Gaya untuk elemen penjelasan */
 .description-container {
-  max-width: 600px;
+  max-width: 90%; /* Kurangi lebar pada perangkat kecil */
   padding: 1rem;
   border-radius: 0.5rem;
   text-align: center;
@@ -205,4 +207,32 @@ body.light .description-container {
 body.dark .description-container {
   background-color: rgba(45, 55, 72, 0.8); /* Latar belakang gelap */
   color: white; /* Teks terang */
+}
+
+/* Responsif untuk judul musim */
+.season h1 {
+  font-size: 2rem; /* Kurangi ukuran font pada perangkat kecil */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  margin-bottom: 1rem;
+}
+
+/* Media query untuk perangkat kecil */
+@media (max-width: 768px) {
+  #landing-page h1 {
+    font-size: 1.5rem; /* Kurangi ukuran font pada halaman awal */
+  }
+
+  .description-container {
+    max-width: 95%; /* Lebar hampir penuh pada perangkat kecil */
+    font-size: 0.9rem; /* Kurangi ukuran font */
+  }
+
+  button {
+    padding: 0.4rem 0.8rem; /* Sesuaikan ukuran tombol */
+    font-size: 0.8rem; /* Kurangi ukuran font tombol */
+  }
+
+  .season h1 {
+    font-size: 1.8rem; /* Kurangi ukuran font judul musim */
+  }
 }
