@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seasonal Themes</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="overflow-hidden">
+    <div id="landing-page" class="w-screen h-screen flex flex-col items-center justify-center bg-blue-500 text-white">
+      <h1 class="text-4xl font-bold mb-4">Website Pembelajaran Musim-Musim di Dunia</h1>
+      <button id="start-button" class="bg-white text-blue-500 px-6 py-3 rounded font-bold">Mulai</button>
+    </div>
+    <div id="season-container" class="relative w-screen h-screen transition-all duration-500 hidden">
+      <!-- Musim Dingin -->
+      <div id="winter" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('winter.gif')">
+        <h1 class="text-white text-4xl mb-4">Musim Dingin</h1>
+        <div id="description-container-winter" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
+          <img id="description-icon-winter" src="icons/winter-icon.png" alt="Winter Icon" class="w-16 h-16 mb-4" />
+          <h2 class="text-xl font-bold mb-2">Musim Dingin</h2>
+          <p class="text-gray-700">Musim dingin adalah musim yang dingin dengan salju di beberapa wilayah.</p>
+        </div>
+      </div>
+      <!-- Musim Panas -->
+      <div id="summer" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center hidden" style="background-image: url('summer.gif')">
+        <h1 class="text-white text-4xl mb-4">Musim Panas</h1>
+        <div id="description-container-summer" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
+          <img id="description-icon-summer" src="icons/summer-icon.png" alt="Summer Icon" class="w-16 h-16 mb-4" />
+          <h2 class="text-xl font-bold mb-2">Musim Panas</h2>
+          <p class="text-gray-700">Musim panas adalah musim yang hangat dengan banyak sinar matahari.</p>
+        </div>
+      </div>
+      <!-- Tambahkan musim lainnya di sini -->
+    </div>
+    <button id="next-season" class="absolute bottom-5 right-5 bg-blue-500 text-white px-4 py-2 rounded hidden">Next Season</button>
+    <button id="back-to-home" class="absolute bottom-5 left-5 bg-red-500 text-white px-4 py-2 rounded hidden">Kembali</button>
+    <button id="toggle-theme" class="absolute top-5 right-5 bg-gray-800 text-white px-4 py-2 rounded">Mode Gelap</button>
+    <div id="fun-fact-container" class="absolute bottom-5 left-5 right-5 bg-yellow-100 p-4 rounded shadow hidden">
+      <h3 id="fun-fact-title" class="text-lg font-bold mb-2">Fakta Menarik</h3>
+      <p id="fun-fact-content" class="text-gray-700"></p>
+    </div>
+    <audio autoplay id="background-music" loop>
+      <source src="winter.mp3" type="audio/mpeg" />
+    </audio>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,208 @@
+.season {
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out;
+  position: relative;
+}
+
+#description-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.5); /* Transparan */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 50%; /* Posisikan di tengah vertikal */
+  left: 50%; /* Posisikan di tengah horizontal */
+  transform: translate(-50%, -50%); /* Pastikan benar-benar di tengah */
+  text-align: center; /* Teks rata tengah */
+}
+
+#landing-page.hidden {
+  display: none;
+  z-index: -1;
+}
+
+.season.hidden {
+  opacity: 0;
+}
+
+/* Efek partikel salju */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1.5rem;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Efek sinar matahari */
+.sunray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0) 70%);
+  border-radius: 50%;
+  animation: pulse 3s infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Mode gelap */
+body.dark {
+  background-color: #1a202c;
+  color: white;
+}
+
+body.dark #description-container {
+  background-color: rgba(45, 55, 72, 0.8); /* Transparan lebih gelap */
+  color: white;
+}
+
+body.dark #fun-fact-container {
+  background-color: rgba(74, 85, 104, 0.8); /* Transparan lebih gelap */
+  color: white;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark p {
+  color: white; /* Pastikan semua teks menjadi putih */
+}
+
+body.dark button {
+  color: white;
+  background-color: #2d3748; /* Warna tombol lebih gelap */
+}
+
+body.dark button:hover {
+  background-color: #4a5568; /* Warna tombol saat hover */
+}
+
+/* Mode terang */
+body.light {
+  background-color: #f9fafb;
+  color: #1a202c;
+}
+
+body.light #description-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Transparan lebih terang */
+  color: #1a202c;
+}
+
+body.light #fun-fact-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Transparan lebih terang */
+  color: #1a202c;
+}
+
+body.light h1,
+body.light h2,
+body.light h3,
+body.light p {
+  color: #1a202c; /* Pastikan semua teks menjadi gelap */
+}
+
+body.light button {
+  color: #1a202c;
+  background-color: #e2e8f0; /* Warna tombol lebih terang */
+}
+
+body.light button:hover {
+  background-color: #cbd5e0; /* Warna tombol saat hover */
+}
+
+#fun-fact-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Animasi fade-in */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gaya tambahan untuk elemen musim */
+.season h1 {
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  margin-bottom: 1rem; /* Tambahkan jarak bawah */
+}
+
+.season p {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.season .description-container {
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.5); /* Transparan */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-top: 1rem; /* Tambahkan jarak atas */
+}
+
+/* Gaya untuk tombol */
+button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Gaya untuk elemen penjelasan */
+.description-container {
+  max-width: 600px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light .description-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Latar belakang terang */
+  color: #1a202c; /* Teks gelap */
+}
+
+body.dark .description-container {
+  background-color: rgba(45, 55, 72, 0.8); /* Latar belakang gelap */
+  color: white; /* Teks terang */
+}
