@@ -235,4 +235,9 @@ body.dark .description-container {
   .season h1 {
     font-size: 1.8rem; /* Kurangi ukuran font judul musim */
   }
+
+  #fun-fact-container {
+    font-size: 0.9rem; /* Kurangi ukuran font fakta menarik */
+    padding: 0.5rem; /* Sesuaikan padding */
+  }
 }
