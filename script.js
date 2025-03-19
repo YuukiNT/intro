@@ -1,29 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const seasons = ["winter", "summer"]; // Tambahkan musim lainnya di sini
-  let currentSeasonIndex = 0;
+  console.log("Script loaded successfully."); // Log untuk memastikan script dimuat
+
+  const landingPage = document.getElementById("landing-page");
+  const seasonContainer = document.getElementById("season-container");
+  const startButton = document.getElementById("start-button");
+  const nextSeasonButton = document.getElementById("next-season");
   const backToHomeButton = document.getElementById("back-to-home");
-  const backgroundMusic = document.getElementById("background-music");
-  let autoChangeTimer;
+  const funFactContainer = document.getElementById("fun-fact-container");
+  const seasons = ["winter", "summer", "gugur", "semi"];
+  let currentSeasonIndex = 0;
 
-  document.getElementById("next-season").addEventListener("click", () => {
-    const currentSeason = document.getElementById(seasons[currentSeasonIndex]);
-    currentSeason.classList.add("hidden");
-    document.getElementById(`description-container-${seasons[currentSeasonIndex]}`).classList.add("hidden");
+  if (!startButton) {
+    console.error("Start button is missing!");
+    return;
+  }
 
-    currentSeasonIndex = (currentSeasonIndex + 1) % seasons.length;
-    const nextSeason = document.getElementById(seasons[currentSeasonIndex]);
-    nextSeason.classList.remove("hidden");
-    document.getElementById(`description-container-${seasons[currentSeasonIndex]}`).classList.remove("hidden");
+  console.log("Start button found."); // Log untuk memastikan tombol ditemukan
 
-    updateFunFact(nextSeason.id);
-    playMusic(nextSeason.id); // Autoplay musik sesuai musim
-  });
-
-  document.getElementById("start-button").addEventListener("click", () => {
-    const landingPage = document.getElementById("landing-page");
-    const seasonContainer = document.getElementById("season-container");
-    const nextSeasonButton = document.getElementById("next-season");
-
+  // Event listener untuk tombol "Mulai"
+  startButton.addEventListener("click", () => {
+    console.log("Start button clicked.");
     if (landingPage && seasonContainer && nextSeasonButton) {
       landingPage.classList.add("hidden");
       seasonContainer.classList.remove("hidden");
@@ -34,46 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById(`description-container-${firstSeason}`).classList.remove("hidden");
       playMusic(firstSeason); // Autoplay musik musim pertama
       updateFunFact(firstSeason);
-      startAutoChangeTimer(); // Mulai timer otomatis
     } else {
       console.error("One or more elements are missing!");
     }
   });
 
-  backToHomeButton.addEventListener("click", () => {
-    const landingPage = document.getElementById("landing-page");
-    const seasonContainer = document.getElementById("season-container");
-    const nextSeasonButton = document.getElementById("next-season");
-    const funFactContainer = document.getElementById("fun-fact-container");
-
-    // Reset semua elemen ke keadaan awal
-    landingPage.classList.remove("hidden");
-    seasonContainer.classList.add("hidden");
-    nextSeasonButton.classList.add("hidden");
-    backToHomeButton.classList.add("hidden");
-
-    // Sembunyikan semua musim
-    seasons.forEach((season) => {
-      document.getElementById(season).classList.add("hidden");
-      document.getElementById(`description-container-${season}`).classList.add("hidden");
-    });
-
-    // Sembunyikan fakta menarik
-    funFactContainer.classList.add("hidden");
-
-    // Reset ke musim pertama
-    currentSeasonIndex = 0;
-    const firstSeason = document.getElementById(seasons[currentSeasonIndex]);
-    if (firstSeason) {
-      firstSeason.classList.remove("hidden");
-    }
-
-    stopMusic();
-    stopAutoChangeTimer(); // Hentikan timer otomatis
-  });
-
+  // Fungsi untuk memperbarui fakta menarik
   function updateFunFact(season) {
-    const funFactContainer = document.getElementById("fun-fact-container");
     const funFactContent = document.getElementById("fun-fact-content");
 
     if (!funFactContainer || !funFactContent) {
@@ -88,30 +51,179 @@ document.addEventListener("DOMContentLoaded", () => {
       case "summer":
         funFactContent.textContent = "Tahukah Anda? Suhu tertinggi yang pernah tercatat di bumi adalah 56,7°C di Furnace Creek, California.";
         break;
-      // Tambahkan kasus untuk musim lainnya di sini
+      case "gugur":
+        funFactContent.textContent = "Tahukah Anda? Musim gugur adalah waktu ketika hewan seperti tupai mengumpulkan makanan untuk persiapan musim dingin.";
+        break;
+      case "semi":
+        funFactContent.textContent = "Tahukah Anda? Musim semi adalah waktu ketika bunga sakura bermekaran di Jepang, menarik wisatawan dari seluruh dunia.";
+        break;
+      default:
+        funFactContent.textContent = "";
     }
 
     funFactContainer.classList.remove("hidden");
   }
 
+  // Fungsi untuk memutar musik
   function playMusic(season) {
+    const backgroundMusic = document.getElementById("background-music");
     const musicMap = {
       winter: "winter.mp3",
       summer: "summer.mp3",
-      // Tambahkan musik untuk musim lainnya di sini
+      gugur: "gugur.mp3",
+      semi: "semi.mp3",
     };
 
-    // Hentikan musik sebelumnya
-    stopMusic();
+    if (!backgroundMusic) {
+      console.error("Background music element is missing!");
+      return;
+    }
 
-    // Putar musik baru
     backgroundMusic.src = musicMap[season] || "";
     backgroundMusic.play();
   }
 
+  const quizPage = document.getElementById("quiz-page");
+  const quizButton = document.getElementById("quiz-button");
+  const backToLandingButton = document.getElementById("back-to-landing");
+  const quizQuestion = document.getElementById("quiz-question");
+  const quizOptions = document.getElementById("quiz-options");
+
+  const quizQuestions = [
+    {
+      question: "Apa yang terjadi pada daun di musim gugur?",
+      options: ["Berubah warna dan gugur", "Bermekaran", "Tumbuh lebih lebat", "Tidak ada perubahan"],
+      correct: 0,
+    },
+    {
+      question: "Apa ciri khas musim dingin?",
+      options: ["Salju", "Bunga bermekaran", "Daun gugur", "Cuaca panas"],
+      correct: 0,
+    },
+    {
+      question: "Apa yang sering terjadi di musim panas?",
+      options: ["Hujan salju", "Suhu tinggi", "Daun berubah warna", "Bunga sakura bermekaran"],
+      correct: 1,
+    },
+    {
+      question: "Apa yang sering terjadi di musim semi?",
+      options: ["Bunga bermekaran", "Salju turun", "Daun gugur", "Cuaca sangat panas"],
+      correct: 0,
+    },
+  ];
+
+  let currentQuestionIndex = 0; // Indeks pertanyaan saat ini
+
+  // Fungsi untuk menampilkan kuis
+  function showQuiz() {
+    if (currentQuestionIndex >= quizQuestions.length) {
+      alert("Selamat, Anda telah menyelesaikan semua pertanyaan!");
+      quizPage.classList.add("hidden");
+      landingPage.classList.remove("hidden");
+      currentQuestionIndex = 0; // Reset indeks pertanyaan
+      return;
+    }
+
+    const quiz = quizQuestions[currentQuestionIndex];
+    quizQuestion.textContent = quiz.question;
+    quizOptions.innerHTML = ""; // Hapus opsi sebelumnya
+
+    quiz.options.forEach((option, index) => {
+      const button = document.createElement("button");
+      button.textContent = option;
+      button.className = "bg-gray-200 px-4 py-2 rounded hover:bg-gray-300";
+      button.addEventListener("click", () => {
+        if (index === quiz.correct) {
+          alert("Selamat, jawaban Anda benar!");
+          currentQuestionIndex++; // Lanjutkan ke pertanyaan berikutnya
+          showQuiz(); // Tampilkan pertanyaan berikutnya
+        } else {
+          alert("Jawaban Anda salah, coba lagi!");
+        }
+      });
+      quizOptions.appendChild(button);
+    });
+  }
+
+  // Event listener untuk tombol "Quiz"
+  quizButton.addEventListener("click", () => {
+    landingPage.classList.add("hidden");
+    quizPage.classList.remove("hidden");
+    currentQuestionIndex = 0; // Reset indeks pertanyaan
+    showQuiz();
+    funFactContainer.classList.add("hidden"); // Sembunyikan fakta menarik
+  });
+
+  // Event listener untuk tombol "Kembali" di halaman kuis
+  backToLandingButton.addEventListener("click", () => {
+    quizPage.classList.add("hidden");
+    landingPage.classList.remove("hidden");
+    currentQuestionIndex = 0; // Reset indeks pertanyaan
+    funFactContainer.classList.add("hidden"); // Sembunyikan fakta menarik
+  });
+
+  let autoChangeTimer;
+
+  if (!nextSeasonButton) {
+    console.error("Next Season button is missing!");
+    return;
+  }
+
+  console.log("Next Season button found."); // Log untuk memastikan tombol ditemukan
+
+  // Fungsi untuk mengubah musim
+  function changeSeason() {
+    console.log("Changing season...");
+    const currentSeason = document.getElementById(seasons[currentSeasonIndex]);
+    currentSeason.classList.add("hidden");
+    document.getElementById(`description-container-${seasons[currentSeasonIndex]}`).classList.add("hidden");
+
+    currentSeasonIndex = (currentSeasonIndex + 1) % seasons.length;
+    const nextSeason = document.getElementById(seasons[currentSeasonIndex]);
+    nextSeason.classList.remove("hidden");
+    document.getElementById(`description-container-${seasons[currentSeasonIndex]}`).classList.remove("hidden");
+
+    updateFunFact(nextSeason.id);
+    playMusic(nextSeason.id); // Autoplay musik sesuai musim
+  }
+
+  // Event listener untuk tombol "Next Season"
+  nextSeasonButton.addEventListener("click", () => {
+    console.log("Next Season button clicked.");
+    changeSeason();
+  });
+
+  backToHomeButton.addEventListener("click", () => {
+    // Reset semua elemen ke keadaan awal
+    landingPage.classList.remove("hidden");
+    seasonContainer.classList.add("hidden");
+    nextSeasonButton.classList.add("hidden");
+    backToHomeButton.classList.add("hidden");
+
+    // Sembunyikan semua musim
+    seasons.forEach((season) => {
+      document.getElementById(season).classList.add("hidden");
+      document.getElementById(`description-container-${season}`).classList.add("hidden");
+    });
+
+    // Reset ke musim pertama
+    currentSeasonIndex = 0;
+    const firstSeason = document.getElementById(seasons[currentSeasonIndex]);
+    if (firstSeason) {
+      firstSeason.classList.remove("hidden");
+    }
+
+    stopMusic();
+    stopAutoChangeTimer(); // Hentikan timer otomatis
+    funFactContainer.classList.add("hidden"); // Sembunyikan fakta menarik
+  });
+
   function stopMusic() {
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0;
+    const backgroundMusic = document.getElementById("background-music");
+    if (backgroundMusic) {
+      backgroundMusic.pause();
+      backgroundMusic.currentTime = 0;
+    }
   }
 
   function startAutoChangeTimer() {

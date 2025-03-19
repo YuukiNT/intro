@@ -11,6 +11,14 @@
     <div id="landing-page" class="w-screen h-screen flex flex-col items-center justify-center bg-blue-500 text-white">
       <h1 class="text-4xl font-bold mb-4">Website Pembelajaran Musim-Musim di Dunia</h1>
       <button id="start-button" class="bg-white text-blue-500 px-6 py-3 rounded font-bold">Mulai</button>
+      <button id="quiz-button" class="bg-yellow-500 text-white px-6 py-3 rounded font-bold mt-4">Quiz</button>
+    </div>
+    <div id="quiz-page" class="w-screen h-screen flex flex-col items-center justify-center bg-green-500 text-white hidden">
+      <h2 id="quiz-question" class="text-xl font-bold mb-4">Pertanyaan:</h2>
+      <div id="quiz-options" class="flex flex-col gap-2">
+        <!-- Opsi jawaban akan diisi oleh JavaScript -->
+      </div>
+      <button id="back-to-landing" class="mt-6 bg-red-500 text-white px-4 py-2 rounded">Kembali</button>
     </div>
     <div id="season-container" class="relative w-screen h-screen transition-all duration-500 hidden">
       <!-- Musim Dingin -->
@@ -29,6 +37,24 @@
           <img id="description-icon-summer" src="icons/summer-icon.png" alt="Summer Icon" class="w-16 h-16 mb-4" />
           <h2 class="text-xl font-bold mb-2">Musim Panas</h2>
           <p class="text-gray-700">Musim panas adalah musim yang hangat dengan banyak sinar matahari.</p>
+        </div>
+      </div>
+      <!-- Musim Gugur -->
+      <div id="gugur" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center hidden" style="background-image: url('gugur.gif')">
+        <h1 class="text-white text-4xl mb-4">Musim Gugur</h1>
+        <div id="description-container-gugur" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
+          <img id="description-icon-gugur" src="icons/gugur-icon.png" alt="Gugur Icon" class="w-16 h-16 mb-4" />
+          <h2 class="text-xl font-bold mb-2">Musim Gugur</h2>
+          <p class="text-gray-700">Musim gugur adalah waktu ketika daun-daun berubah warna menjadi merah, kuning, atau oranye sebelum akhirnya gugur. Ini adalah musim yang tenang dengan suhu yang mulai mendingin.</p>
+        </div>
+      </div>
+      <!-- Musim Semi -->
+      <div id="semi" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center hidden" style="background-image: url('semi.gif')">
+        <h1 class="text-white text-4xl mb-4">Musim Semi</h1>
+        <div id="description-container-semi" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
+          <img id="description-icon-semi" src="icons/semi-icon.png" alt="Semi Icon" class="w-16 h-16 mb-4" />
+          <h2 class="text-xl font-bold mb-2">Musim Semi</h2>
+          <p class="text-gray-700">Musim semi adalah musim yang penuh kehidupan, di mana bunga-bunga mulai bermekaran dan cuaca menjadi lebih hangat setelah musim dingin.</p>
         </div>
       </div>
       <!-- Tambahkan musim lainnya di sini -->
