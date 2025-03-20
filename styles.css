@@ -220,11 +220,14 @@ body.dark .description-container {
 @media (max-width: 768px) {
   #landing-page h1 {
     font-size: 1.5rem; /* Kurangi ukuran font pada halaman awal */
+    text-align: center; /* Pastikan teks rata tengah */
+    padding: 0 1rem; /* Tambahkan padding untuk teks */
   }
 
   .description-container {
     max-width: 95%; /* Lebar hampir penuh pada perangkat kecil */
     font-size: 0.9rem; /* Kurangi ukuran font */
+    padding: 1rem; /* Tambahkan padding */
   }
 
   button {
@@ -234,11 +237,13 @@ body.dark .description-container {
 
   .season h1 {
     font-size: 1.8rem; /* Kurangi ukuran font judul musim */
+    text-align: center; /* Pastikan teks rata tengah */
   }
 
   #fun-fact-container {
     font-size: 0.9rem; /* Kurangi ukuran font fakta menarik */
     padding: 0.5rem; /* Sesuaikan padding */
+    margin-bottom: 4rem; /* Tambahkan margin bawah agar tidak menutupi tombol */
   }
 
   #next-season {
@@ -251,7 +256,68 @@ body.dark .description-container {
     left: 1rem; /* Tambahkan jarak dari kiri */
   }
 
+  #quiz-page h2 {
+    font-size: 1.5rem; /* Kurangi ukuran font pertanyaan kuis */
+    text-align: center; /* Pastikan teks rata tengah */
+    padding: 0 1rem; /* Tambahkan padding untuk teks */
+  }
+
+  #quiz-options button {
+    font-size: 0.8rem; /* Kurangi ukuran font tombol kuis */
+    padding: 0.4rem 0.8rem; /* Sesuaikan ukuran tombol */
+  }
+
+  #quiz-options {
+    gap: 0.5rem; /* Kurangi jarak antar tombol */
+  }
+
+  #back-to-landing {
+    font-size: 0.8rem; /* Kurangi ukuran font tombol kembali */
+    padding: 0.4rem 0.8rem; /* Sesuaikan ukuran tombol */
+  }
+
+  audio {
+    width: 90%; /* Sesuaikan lebar audio pada perangkat kecil */
+    margin: 1rem auto; /* Tambahkan margin untuk audio */
+  }
+}
+
+/* Media query untuk perangkat sangat kecil */
+@media (max-width: 480px) {
+  #landing-page h1 {
+    font-size: 1.2rem; /* Kurangi ukuran font lebih kecil */
+  }
+
+  .description-container {
+    font-size: 0.8rem; /* Kurangi ukuran font lebih kecil */
+    padding: 0.8rem; /* Sesuaikan padding */
+  }
+
+  button {
+    font-size: 0.7rem; /* Kurangi ukuran font tombol lebih kecil */
+    padding: 0.3rem 0.6rem; /* Sesuaikan ukuran tombol */
+  }
+
+  .season h1 {
+    font-size: 1.5rem; /* Kurangi ukuran font judul musim lebih kecil */
+  }
+
   #fun-fact-container {
-    margin-bottom: 4rem; /* Tambahkan margin bawah agar tidak menutupi tombol */
+    font-size: 0.8rem; /* Kurangi ukuran font fakta menarik lebih kecil */
+    padding: 0.4rem; /* Sesuaikan padding */
+  }
+
+  #quiz-page h2 {
+    font-size: 1.2rem; /* Kurangi ukuran font pertanyaan kuis lebih kecil */
+  }
+
+  #quiz-options button {
+    font-size: 0.7rem; /* Kurangi ukuran font tombol kuis lebih kecil */
+    padding: 0.3rem 0.6rem; /* Sesuaikan ukuran tombol */
+  }
+
+  #back-to-landing {
+    font-size: 0.7rem; /* Kurangi ukuran font tombol kembali lebih kecil */
+    padding: 0.3rem 0.6rem; /* Sesuaikan ukuran tombol */
   }
 }

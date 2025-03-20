@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function playMusic(season) {
     const backgroundMusic = document.getElementById("background-music");
     const musicMap = {
-      winter: "winter.mp3",
-      summer: "summer.mp3",
+      winter: "music/winter.mp3",
+      summer: "music/summer.mp3",
       gugur: "gugur.mp3",
       semi: "semi.mp3",
     };

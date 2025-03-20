@@ -13,7 +13,7 @@
       <button id="start-button" class="bg-white text-blue-500 px-6 py-3 rounded font-bold">Mulai</button>
       <button id="quiz-button" class="bg-yellow-500 text-white px-6 py-3 rounded font-bold mt-4">Quiz</button>
     </div>
-    <div id="quiz-page" class="w-screen h-screen flex flex-col items-center justify-center bg-green-500 text-white hidden">
+    <div id="quiz-page" class="w-screen h-screen flex flex-col items-center justify-center bg-green-500 text-white">
       <h2 id="quiz-question" class="text-xl font-bold mb-4">Pertanyaan:</h2>
       <div id="quiz-options" class="flex flex-col gap-2">
         <!-- Opsi jawaban akan diisi oleh JavaScript -->
@@ -22,7 +22,7 @@
     </div>
     <div id="season-container" class="relative w-screen h-screen transition-all duration-500 hidden">
       <!-- Musim Dingin -->
-      <div id="winter" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('winter.gif')">
+      <div id="winter" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('background/winter.gif')">
         <h1 class="text-white text-4xl mb-4">Musim Dingin</h1>
         <div id="description-container-winter" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
           <img id="description-icon-winter" src="icons/winter-icon.png" alt="Winter Icon" class="w-16 h-16 mb-4" />
@@ -31,7 +31,7 @@
         </div>
       </div>
       <!-- Musim Panas -->
-      <div id="summer" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center hidden" style="background-image: url('summer.gif')">
+      <div id="summer" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('background/summer.gif')">
         <h1 class="text-white text-4xl mb-4">Musim Panas</h1>
         <div id="description-container-summer" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
           <img id="description-icon-summer" src="icons/summer-icon.png" alt="Summer Icon" class="w-16 h-16 mb-4" />
@@ -49,7 +49,7 @@
         </div>
       </div>
       <!-- Musim Semi -->
-      <div id="semi" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center hidden" style="background-image: url('semi.gif')">
+      <div id="semi" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('semi.gif')">
         <h1 class="text-white text-4xl mb-4">Musim Semi</h1>
         <div id="description-container-semi" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
           <img id="description-icon-semi" src="icons/semi-icon.png" alt="Semi Icon" class="w-16 h-16 mb-4" />
@@ -67,7 +67,7 @@
       <p id="fun-fact-content" class="text-gray-700"></p>
     </div>
     <audio autoplay id="background-music" loop>
-      <source src="winter.mp3" type="audio/mpeg" />
+      <source src="" type="audio/mpeg" />
     </audio>
     <script src="script.js"></script>
   </body>
