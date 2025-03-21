@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const musicMap = {
       winter: "music/winter.mp3",
       summer: "music/summer.mp3",
-      gugur: "gugur.mp3",
-      semi: "semi.mp3",
+      gugur: "music/gugur.mp3",
+      semi: "music/semi.mp3",
     };
 
     if (!backgroundMusic) {
@@ -88,6 +88,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToLandingButton = document.getElementById("back-to-landing");
   const quizQuestion = document.getElementById("quiz-question");
   const quizOptions = document.getElementById("quiz-options");
+
+  if (!quizPage || !quizButton || !backToLandingButton || !quizQuestion || !quizOptions) {
+    console.error("One or more quiz elements are missing!");
+    return;
+  }
+
+  console.log("Quiz elements found."); // Log untuk memastikan elemen kuis ditemukan
 
   const quizQuestions = [
     {
@@ -118,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function showQuiz() {
     if (currentQuestionIndex >= quizQuestions.length) {
       alert("Selamat, Anda telah menyelesaikan semua pertanyaan!");
-      quizPage.classList.add("hidden");
+      quizPage.style.display = "none";
       landingPage.classList.remove("hidden");
       currentQuestionIndex = 0; // Reset indeks pertanyaan
       return;
@@ -148,18 +155,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Event listener untuk tombol "Quiz"
   quizButton.addEventListener("click", () => {
     landingPage.classList.add("hidden");
-    quizPage.classList.remove("hidden");
+    quizPage.style.display = "flex";
     currentQuestionIndex = 0; // Reset indeks pertanyaan
     showQuiz();
-    funFactContainer.classList.add("hidden"); // Sembunyikan fakta menarik
   });
 
   // Event listener untuk tombol "Kembali" di halaman kuis
   backToLandingButton.addEventListener("click", () => {
-    quizPage.classList.add("hidden");
+    quizPage.style.display = "none";
     landingPage.classList.remove("hidden");
     currentQuestionIndex = 0; // Reset indeks pertanyaan
-    funFactContainer.classList.add("hidden"); // Sembunyikan fakta menarik
   });
 
   let autoChangeTimer;
@@ -174,6 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fungsi untuk mengubah musim
   function changeSeason() {
     console.log("Changing season...");
+    console.log("Current season:", seasons[currentSeasonIndex]); // Debugging log
     const currentSeason = document.getElementById(seasons[currentSeasonIndex]);
     currentSeason.classList.add("hidden");
     document.getElementById(`description-container-${seasons[currentSeasonIndex]}`).classList.add("hidden");
@@ -254,4 +260,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Set mode default ke terang
   document.body.classList.add("light");
+
+  const teamSection = document.getElementById("team-section");
+  const showTeamButton = document.getElementById("show-team-button");
+
+  // Event listener untuk tombol "Tampilkan Anggota"
+  showTeamButton.addEventListener("click", () => {
+    if (teamSection.classList.contains("hidden")) {
+      teamSection.classList.remove("hidden");
+      showTeamButton.textContent = "Sembunyikan Anggota";
+    } else {
+      teamSection.classList.add("hidden");
+      showTeamButton.textContent = "Tampilkan Anggota";
+    }
+  });
 });

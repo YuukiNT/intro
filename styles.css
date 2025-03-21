@@ -191,11 +191,13 @@ button:hover {
 
 /* Gaya untuk elemen penjelasan */
 .description-container {
-  max-width: 90%; /* Kurangi lebar pada perangkat kecil */
-  padding: 1rem;
+  width: 90%; /* Lebar hampir penuh */
+  max-width: 800px; /* Batas maksimum lebar */
+  padding: 2rem; /* Tambahkan padding untuk ruang di dalam elemen */
   border-radius: 0.5rem;
-  text-align: center;
-  margin-top: 1rem;
+  text-align: justify; /* Rata kanan-kiri untuk teks */
+  margin: 2rem auto; /* Pusatkan elemen secara horizontal dan tambahkan jarak vertikal */
+  background-color: rgba(255, 255, 255, 0.8); /* Transparan */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -225,16 +227,11 @@ body.dark .description-container {
   }
 
   .description-container {
-    max-width: 95%; /* Lebar hampir penuh pada perangkat kecil */
+    width: 95%; /* Lebar hampir penuh pada perangkat kecil */
+    max-width: 600px; /* Kurangi batas maksimum lebar */
+    padding: 1.5rem; /* Kurangi padding */
     font-size: 0.9rem; /* Kurangi ukuran font */
-    padding: 1rem; /* Tambahkan padding */
   }
-
-  button {
-    padding: 0.4rem 0.8rem; /* Sesuaikan ukuran tombol */
-    font-size: 0.8rem; /* Kurangi ukuran font tombol */
-  }
-
   .season h1 {
     font-size: 1.8rem; /* Kurangi ukuran font judul musim */
     text-align: center; /* Pastikan teks rata tengah */
@@ -289,8 +286,10 @@ body.dark .description-container {
   }
 
   .description-container {
+    width: 100%; /* Lebar penuh pada perangkat sangat kecil */
+    max-width: 90%; /* Kurangi batas maksimum lebar */
+    padding: 1rem; /* Sesuaikan padding */
     font-size: 0.8rem; /* Kurangi ukuran font lebih kecil */
-    padding: 0.8rem; /* Sesuaikan padding */
   }
 
   button {
@@ -320,4 +319,63 @@ body.dark .description-container {
     font-size: 0.7rem; /* Kurangi ukuran font tombol kembali lebih kecil */
     padding: 0.3rem 0.6rem; /* Sesuaikan ukuran tombol */
   }
+}
+
+/* Gaya untuk bagian nama kelompok */
+#team-section {
+  background-color: #f3f4f6; /* Warna latar belakang abu-abu terang */
+  padding: 2rem 1rem; /* Padding atas dan bawah */
+  border-radius: 0.5rem; /* Tambahkan border radius */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+}
+
+#team-section h2 {
+  color: #1d4ed8; /* Warna teks judul biru */
+  margin-bottom: 1.5rem; /* Jarak bawah judul */
+}
+
+#team-section .flex {
+  gap: 2rem; /* Jarak antar anggota */
+}
+
+#team-section img {
+  border: 3px solid #e2e8f0; /* Border untuk gambar */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi hover */
+}
+
+#team-section img:hover {
+  transform: scale(1.1); /* Perbesar gambar saat hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan */
+}
+
+#team-section p {
+  text-align: center; /* Teks rata tengah */
+  margin: 0; /* Hilangkan margin default */
+}
+
+#team-section p.text-lg {
+  margin-top: 0.5rem; /* Jarak atas untuk nama */
+}
+
+#team-section p.text-gray-600 {
+  font-size: 0.875rem; /* Ukuran font lebih kecil untuk NIM */
+  color: #718096; /* Warna teks abu-abu */
+}
+
+/* Mode gelap untuk bagian nama kelompok */
+body.dark #team-section {
+  background-color: #2d3748; /* Warna latar belakang gelap */
+  color: white; /* Warna teks terang */
+}
+
+body.dark #team-section h2 {
+  color: #63b3ed; /* Warna teks judul biru terang */
+}
+
+body.dark #team-section img {
+  border-color: #4a5568; /* Warna border lebih gelap */
+}
+
+body.dark #team-section p.text-gray-600 {
+  color: #a0aec0; /* Warna teks abu-abu terang */
 }
