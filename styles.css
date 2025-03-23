@@ -137,6 +137,25 @@ body.light button:hover {
 #fun-fact-container {
   max-width: 600px;
   margin: 0 auto;
+  position: fixed; /* Tetap di layar meskipun halaman di-scroll */
+  bottom: 2rem; /* Jarak dari bawah layar */
+  left: 2rem; /* Jarak dari kiri layar */
+  right: 2rem; /* Jarak dari kanan layar */
+  z-index: 1000; /* Pastikan elemen berada di atas elemen lainnya */
+  max-width: 600px; /* Batas maksimum lebar */
+  margin: 0 auto; /* Pusatkan elemen secara horizontal */
+  padding: 1rem; /* Tambahkan padding */
+  font-size: 0.9rem; /* Ukuran font default */
+  text-align: justify; /* Rata kanan-kiri untuk teks */
+  background-color: rgba(255, 255, 255, 0.9); /* Transparan */
+  border-radius: 0.5rem; /* Tambahkan border radius */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+  transition: opacity 0.3s ease-in-out; /* Animasi transisi */
+}
+
+#fun-fact-container.hidden {
+  opacity: 0; /* Sembunyikan dengan transisi */
+  pointer-events: none; /* Nonaktifkan interaksi */
 }
 
 /* Animasi fade-in */
@@ -157,13 +176,13 @@ body.light button:hover {
 
 /* Gaya tambahan untuk elemen musim */
 .season h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   margin-bottom: 1rem; /* Tambahkan jarak bawah */
 }
 
 .season p {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   color: #f0f0f0;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }

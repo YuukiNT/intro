@@ -78,7 +78,6 @@
       <div id="gugur" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('background/gugur.gif')">
         <h1 class="text-white text-4xl mb-4">Musim Gugur</h1>
         <div id="description-container-gugur" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
-          <img id="description-icon-gugur" src="icons/gugur-icon.png" alt="Gugur Icon" class="w-16 h-16 mb-4" />
           <h2 class="text-xl font-bold mb-2">Musim Gugur</h2>
           <p class="text-gray-700">
             Musim gugur terjadi antara bulan September hingga November di negara-negara beriklim sedang, seperti di Eropa dan Amerika Utara. Musim ini ditandai dengan perubahan warna daun yang menjadi kuning, jingga, atau merah sebelum
@@ -91,7 +90,6 @@
       <div id="semi" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('background/semi.gif')">
         <h1 class="text-white text-4xl mb-4">Musim Semi</h1>
         <div id="description-container-semi" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
-          <img id="description-icon-semi" src="icons/semi-icon.png" alt="Semi Icon" class="w-16 h-16 mb-4" />
           <h2 class="text-xl font-bold mb-2">Musim Semi</h2>
           <p class="text-gray-700">Musim semi adalah musim yang penuh kehidupan, di mana bunga-bunga mulai bermekaran dan cuaca menjadi lebih hangat setelah musim dingin.</p>
         </div>
@@ -100,8 +98,8 @@
     </div>
     <button id="next-season" class="absolute bottom-5 right-5 bg-blue-500 text-white px-4 py-2 rounded hidden">Next Season</button>
     <button id="back-to-home" class="absolute bottom-5 left-5 bg-red-500 text-white px-4 py-2 rounded hidden">Kembali</button>
-    <button id="toggle-theme" class="absolute top-5 right-5 bg-gray-800 text-white px-4 py-2 rounded">Mode Gelap</button>
-    <div id="fun-fact-container" class="absolute bottom-5 left-5 right-5 bg-yellow-100 p-4 rounded shadow hidden">
+    <button id="toggle-theme" class="fixed top-2 right-2 z-50 bg-gray-800 text-white text-xs px-2 py-1 rounded shadow hover:bg-gray-700 transition-transform transform hover:scale-105 sm:text-sm sm:px-3 sm:py-2">Mode Gelap</button>
+    <div id="fun-fact-container" class="bg-yellow-100 p-4 rounded shadow">
       <h3 id="fun-fact-title" class="text-lg font-bold mb-2">Fakta Menarik</h3>
       <p id="fun-fact-content" class="text-gray-700"></p>
     </div>

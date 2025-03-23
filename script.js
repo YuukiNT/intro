@@ -10,6 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const seasons = ["winter", "summer", "gugur", "semi"];
   let currentSeasonIndex = 0;
 
+  // Sembunyikan elemen "Fun Fact" saat halaman dimuat
+  if (funFactContainer) {
+    funFactContainer.classList.add("hidden");
+    console.log("Fun fact container is hidden by default.");
+  }
+
   if (!startButton) {
     console.error("Start button is missing!");
     return;
@@ -38,12 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fungsi untuk memperbarui fakta menarik
   function updateFunFact(season) {
     const funFactContent = document.getElementById("fun-fact-content");
+    const funFactContainer = document.getElementById("fun-fact-container");
 
     if (!funFactContainer || !funFactContent) {
       console.error("Fun fact elements are missing!");
       return;
     }
 
+    console.log(`Updating fun fact for season: ${season}`); // Debugging log
+
+    // Perbarui konten fakta menarik berdasarkan musim
     switch (season) {
       case "winter":
         funFactContent.textContent = "Tahukah Anda? Kutub Utara mengalami malam yang berlangsung selama 6 bulan di musim dingin!";
@@ -58,10 +68,12 @@ document.addEventListener("DOMContentLoaded", () => {
         funFactContent.textContent = "Tahukah Anda? Musim semi adalah waktu ketika bunga sakura bermekaran di Jepang, menarik wisatawan dari seluruh dunia.";
         break;
       default:
-        funFactContent.textContent = "";
+        funFactContent.textContent = "Fakta menarik tidak tersedia untuk musim ini.";
     }
 
+    // Tampilkan elemen fakta menarik
     funFactContainer.classList.remove("hidden");
+    console.log("Fun fact container is now visible."); // Debugging log
   }
 
   // Fungsi untuk memutar musik
@@ -177,26 +189,27 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("Next Season button found."); // Log untuk memastikan tombol ditemukan
 
   // Fungsi untuk mengubah musim
-  function changeSeason() {
+  function changeSeason(direction) {
     console.log("Changing season...");
-    console.log("Current season:", seasons[currentSeasonIndex]); // Debugging log
     const currentSeason = document.getElementById(seasons[currentSeasonIndex]);
     currentSeason.classList.add("hidden");
     document.getElementById(`description-container-${seasons[currentSeasonIndex]}`).classList.add("hidden");
 
-    currentSeasonIndex = (currentSeasonIndex + 1) % seasons.length;
+    // Hitung indeks musim berikutnya atau sebelumnya
+    currentSeasonIndex = (currentSeasonIndex + direction + seasons.length) % seasons.length;
+
     const nextSeason = document.getElementById(seasons[currentSeasonIndex]);
     nextSeason.classList.remove("hidden");
     document.getElementById(`description-container-${seasons[currentSeasonIndex]}`).classList.remove("hidden");
 
-    updateFunFact(nextSeason.id);
+    updateFunFact(nextSeason.id); // Perbarui fakta menarik
     playMusic(nextSeason.id); // Autoplay musik sesuai musim
   }
 
   // Event listener untuk tombol "Next Season"
   nextSeasonButton.addEventListener("click", () => {
     console.log("Next Season button clicked.");
-    changeSeason();
+    changeSeason(1);
   });
 
   backToHomeButton.addEventListener("click", () => {
@@ -273,5 +286,32 @@ document.addEventListener("DOMContentLoaded", () => {
       teamSection.classList.add("hidden");
       showTeamButton.textContent = "Tampilkan Anggota";
     }
+  });
+
+  let touchStartX = 0; // Posisi awal sentuhan
+  let touchEndX = 0; // Posisi akhir sentuhan
+
+  // Fungsi untuk mendeteksi swipe
+  function handleSwipe() {
+    const swipeThreshold = 50; // Jarak minimum untuk mendeteksi swipe
+    if (touchEndX - touchStartX > swipeThreshold) {
+      // Swipe ke kanan (musim sebelumnya)
+      console.log("Swipe detected: right");
+      changeSeason(-1);
+    } else if (touchStartX - touchEndX > swipeThreshold) {
+      // Swipe ke kiri (musim berikutnya)
+      console.log("Swipe detected: left");
+      changeSeason(1);
+    }
+  }
+
+  // Tambahkan event listener untuk swipe gesture
+  seasonContainer.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].clientX; // Simpan posisi awal sentuhan
+  });
+
+  seasonContainer.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].clientX; // Simpan posisi akhir sentuhan
+    handleSwipe(); // Panggil fungsi untuk mendeteksi swipe
   });
 });
