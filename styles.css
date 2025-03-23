@@ -342,7 +342,7 @@ body.dark .description-container {
 
 /* Gaya untuk bagian nama kelompok */
 #team-section {
-  background-color: #f3f4f6; /* Warna latar belakang abu-abu terang */
+  background-color: #f9fafb; /* Warna latar belakang abu-abu terang */
   padding: 2rem 1rem; /* Padding atas dan bawah */
   border-radius: 0.5rem; /* Tambahkan border radius */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
@@ -357,14 +357,18 @@ body.dark .description-container {
   gap: 2rem; /* Jarak antar anggota */
 }
 
+#team-section .grid {
+  gap: 2rem; /* Jarak antar anggota */
+}
+
 #team-section img {
-  border: 3px solid #e2e8f0; /* Border untuk gambar */
+  border: 4px solid #ef4444; /* Border merah untuk gambar */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi hover */
 }
 
 #team-section img:hover {
   transform: scale(1.1); /* Perbesar gambar saat hover */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan */
 }
 
 #team-section p {
@@ -397,4 +401,101 @@ body.dark #team-section img {
 
 body.dark #team-section p.text-gray-600 {
   color: #a0aec0; /* Warna teks abu-abu terang */
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+  #team-section .flex {
+    gap: 1.5rem; /* Kurangi jarak antar anggota */
+  }
+
+  #team-section .grid {
+    grid-template-columns: 1fr 1fr; /* Dua kolom pada perangkat kecil */
+    gap: 1.5rem; /* Kurangi jarak antar anggota */
+  }
+
+  #team-section img {
+    width: 5rem; /* Kurangi ukuran gambar */
+    height: 5rem;
+  }
+
+  #team-section p.text-lg {
+    font-size: 0.9rem; /* Kurangi ukuran font nama */
+  }
+
+  #team-section p.text-gray-600 {
+    font-size: 0.75rem; /* Kurangi ukuran font NIM */
+  }
+}
+
+/* Responsif untuk perangkat sangat kecil */
+@media (max-width: 480px) {
+  #team-section .grid {
+    grid-template-columns: 1fr; /* Satu kolom pada perangkat sangat kecil */
+    gap: 1rem; /* Kurangi jarak antar anggota */
+  }
+
+  #team-section img {
+    width: 4rem; /* Kurangi ukuran gambar lebih kecil */
+    height: 4rem;
+  }
+
+  #team-section p.text-lg {
+    font-size: 0.8rem; /* Kurangi ukuran font nama lebih kecil */
+  }
+
+  #team-section p.text-gray-600 {
+    font-size: 0.7rem; /* Kurangi ukuran font NIM lebih kecil */
+  }
+}
+
+/* Gaya untuk musim hujan */
+#rainy {
+  background-image: url("background/rainy.gif"); /* Gambar latar untuk musim hujan */
+  background-size: cover;
+  background-position: center;
+}
+
+#description-container-rainy {
+  background-color: rgba(173, 216, 230, 0.8); /* Warna biru muda transparan */
+  color: #1a202c; /* Warna teks gelap */
+}
+
+/* Tambahkan animasi hujan */
+.rain-drop {
+  position: absolute;
+  top: -10px;
+  width: 2px;
+  height: 10px;
+  background: rgba(0, 0, 255, 0.5);
+  animation: rain-fall 2s linear infinite;
+}
+
+@keyframes rain-fall {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Mode gelap untuk musim hujan */
+body.dark #rainy {
+  background-image: url("background/rainy-dark.gif"); /* Gambar latar gelap untuk musim hujan */
+}
+
+body.dark #description-container-rainy {
+  background-color: rgba(45, 55, 72, 0.8); /* Transparan lebih gelap */
+  color: white; /* Warna teks terang */
+}
+
+/* Mode terang untuk musim hujan */
+body.light #rainy {
+  background-image: url("background/rainy.gif"); /* Gambar latar terang untuk musim hujan */
+}
+
+body.light #description-container-rainy {
+  background-color: rgba(173, 216, 230, 0.8); /* Transparan lebih terang */
+  color: #1a202c; /* Warna teks gelap */
 }

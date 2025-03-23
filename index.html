@@ -8,44 +8,42 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="overflow-hidden">
-    <div id="landing-page" class="w-screen h-screen flex flex-col items-center justify-center bg-blue-500 text-white overflow-y-auto relative">
+    <div id="landing-page" class="w-screen h-screen flex flex-col items-center justify-center text-white overflow-y-auto relative" style="background-image: url('background/judul.gif')">
       <h1 class="text-4xl font-bold mb-4">Website Pembelajaran Musim-Musim di Dunia</h1>
       <button id="start-button" class="bg-white text-blue-500 px-6 py-3 rounded font-bold">Mulai</button>
       <button id="quiz-button" class="bg-yellow-500 text-white px-6 py-3 rounded font-bold mt-4">Quiz</button>
+      <button id="show-team-button" class="bg-gray-800 text-white px-4 py-2 rounded shadow-lg hover:bg-gray-700 transition mt-4">Tampilkan Anggota</button>
 
       <!-- Bagian Nama Kelompok -->
       <div id="team-section" class="w-full bg-gray-100 py-10 mt-10 rounded-lg hidden">
         <h2 class="text-center text-2xl font-bold mb-6 text-blue-500">Kelompok Pembuat</h2>
-        <div class="flex flex-wrap justify-center gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
           <!-- Anggota 1 -->
-          <div class="flex flex-col items-center">
-            <img src="images/member1.jpg" alt="Member 1" class="w-24 h-24 rounded-full mb-4 shadow-lg" />
-            <p class="text-lg font-semibold">Nama Anggota 1</p>
-            <p class="text-gray-600">NIM: 123456789</p>
+          <div class="flex flex-col items-center text-center">
+            <img src="Foto Anggota/2305176018.jpg" alt="Reva Hidayati" class="w-28 h-28 rounded-full mb-4 shadow-lg border-4 border-red-500" />
+            <p class="text-lg font-semibold mt-2">Reva Hidayati</p>
+            <p class="text-gray-600 text-sm">NIM: 2305176018</p>
           </div>
           <!-- Anggota 2 -->
-          <div class="flex flex-col items-center">
-            <img src="images/member2.jpg" alt="Member 2" class="w-24 h-24 rounded-full mb-4 shadow-lg" />
-            <p class="text-lg font-semibold">Nama Anggota 2</p>
-            <p class="text-gray-600">NIM: 987654321</p>
+          <div class="flex flex-col items-center text-center">
+            <img src="Foto Anggota/2305176019.jpg" alt="Maruto Nugroho" class="w-28 h-28 rounded-full mb-4 shadow-lg border-4 border-red-500" />
+            <p class="text-lg font-semibold mt-2">Maruto Nugroho</p>
+            <p class="text-gray-600 text-sm">NIM: 2305176019</p>
           </div>
           <!-- Anggota 3 -->
-          <div class="flex flex-col items-center">
-            <img src="images/member3.jpg" alt="Member 3" class="w-24 h-24 rounded-full mb-4 shadow-lg" />
-            <p class="text-lg font-semibold">Nama Anggota 3</p>
-            <p class="text-gray-600">NIM: 112233445</p>
+          <div class="flex flex-col items-center text-center">
+            <img src="Foto Anggota/2305176029.jpg" alt="Muhammad Alif Taufik Syahputra" class="w-28 h-28 rounded-full mb-4 shadow-lg border-4 border-red-500" />
+            <p class="text-lg font-semibold mt-2">Muhammad Alif Taufik Syahputra</p>
+            <p class="text-gray-600 text-sm">NIM: 2305176029</p>
           </div>
-          <div class="flex flex-col items-center">
-            <img src="images/member3.jpg" alt="Member 4" class="w-24 h-24 rounded-full mb-4 shadow-lg" />
-            <p class="text-lg font-semibold">Nama Anggota 3</p>
-            <p class="text-gray-600">NIM: 112233445</p>
+          <!-- Anggota 4 -->
+          <div class="flex flex-col items-center text-center">
+            <img src="Foto Anggota/2305176033.jpg" alt="Muhammad Hilal Abqary" class="w-28 h-28 rounded-full mb-4 shadow-lg border-4 border-red-500" />
+            <p class="text-lg font-semibold mt-2">Muhammad Hilal Abqary</p>
+            <p class="text-gray-600 text-sm">NIM: 2305176033</p>
           </div>
-          <!-- Tambahkan anggota lainnya di sini -->
         </div>
       </div>
-
-      <!-- Tombol Tampilkan Anggota -->
-      <button id="show-team-button" class="absolute bottom-5 left-5 bg-gray-800 text-white px-4 py-2 rounded shadow-lg hover:bg-gray-700 transition">Tampilkan Anggota</button>
     </div>
 
     <div id="quiz-page" class="w-screen h-screen flex flex-col items-center justify-center bg-green-500 text-white" style="display: none">
@@ -60,18 +58,22 @@
       <div id="winter" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('background/winter.gif')">
         <h1 class="text-white text-4xl mb-4">Musim Dingin</h1>
         <div id="description-container-winter" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
-          <img id="description-icon-winter" src="icons/winter-icon.png" alt="Winter Icon" class="w-16 h-16 mb-4" />
           <h2 class="text-xl font-bold mb-2">Musim Dingin</h2>
-          <p class="text-gray-700">Musim dingin adalah musim yang dingin dengan salju di beberapa wilayah.</p>
+          <p class="text-gray-700">
+            Musim dingin terjadi antara Desember hingga Februari. Ini adalah musim dengan suhu terendah dalam setahun. Di beberapa wilayah, terjadi salju yang menutupi tanah, dan siang hari menjadi lebih pendek dibanding malam. Beberapa
+            hewan hibernasi untuk bertahan dari cuaca dingin, sementara manusia menggunakan pakaian tebal dan pemanas ruangan untuk menghangatkan diri.
+          </p>
         </div>
       </div>
       <!-- Musim Panas -->
       <div id="summer" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('background/panas.gif')">
         <h1 class="text-white text-4xl mb-4">Musim Panas</h1>
         <div id="description-container-summer" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
-          <img id="description-icon-summer" src="icons/summer-icon.png" alt="Summer Icon" class="w-16 h-16 mb-4" />
           <h2 class="text-xl font-bold mb-2">Musim Panas</h2>
-          <p class="text-gray-700">Musim panas adalah musim yang hangat dengan banyak sinar matahari.</p>
+          <p class="text-gray-700">
+            Musim panas berlangsung antara Juni hingga Agustus. Ini adalah musim dengan suhu tertinggi dalam setahun. Siang hari lebih panjang daripada malam, dan banyak orang memanfaatkannya untuk aktivitas luar ruangan seperti berenang
+            dan berkemah. Di beberapa wilayah, musim panas juga ditandai dengan badai petir akibat peningkatan suhu dan kelembapan.
+          </p>
         </div>
       </div>
       <!-- Musim Gugur -->
@@ -91,7 +93,18 @@
         <h1 class="text-white text-4xl mb-4">Musim Semi</h1>
         <div id="description-container-semi" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
           <h2 class="text-xl font-bold mb-2">Musim Semi</h2>
-          <p class="text-gray-700">Musim semi adalah musim yang penuh kehidupan, di mana bunga-bunga mulai bermekaran dan cuaca menjadi lebih hangat setelah musim dingin.</p>
+          <p class="text-gray-700">
+            Musim semi adalah musim yang penuh kehidupan, di mana bunga-bunga mulai bermekaran dan cuaca menjadi lebih hangat setelah musim dingin.Musim semi terjadi antara Maret hingga Mei. Pada musim ini, suhu mulai menghangat setelah
+            musim dingin. Bunga-bunga mulai bermekaran, pohon kembali berdaun, dan banyak hewan yang keluar dari hibernasi. Hari menjadi lebih panjang, dan hujan sering turun untuk mendukung pertumbuhan tanaman.
+          </p>
+        </div>
+      </div>
+      <!-- Musim Hujan -->
+      <div id="rainy" class="season absolute inset-0 flex flex-col items-center justify-center bg-cover bg-center" style="background-image: url('background/Hujan.gif')">
+        <h1 class="text-white text-4xl mb-4">Musim Hujan</h1>
+        <div id="description-container-rainy" class="description-container bg-white bg-opacity-50 p-4 rounded hidden">
+          <h2 class="text-xl font-bold mb-2">Musim Hujan</h2>
+          <p class="text-gray-700">Musim hujan adalah musim dengan curah hujan tinggi yang biasanya terjadi di daerah tropis. Musim ini penting untuk pertanian dan sumber air, tetapi juga dapat menyebabkan banjir di beberapa wilayah.</p>
         </div>
       </div>
       <!-- Tambahkan musim lainnya di sini -->

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextSeasonButton = document.getElementById("next-season");
   const backToHomeButton = document.getElementById("back-to-home");
   const funFactContainer = document.getElementById("fun-fact-container");
-  const seasons = ["winter", "summer", "gugur", "semi"];
+  const seasons = ["winter", "summer", "gugur", "semi", "rainy"]; // Tambahkan "rainy"
   let currentSeasonIndex = 0;
 
   // Sembunyikan elemen "Fun Fact" saat halaman dimuat
@@ -67,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
       case "semi":
         funFactContent.textContent = "Tahukah Anda? Musim semi adalah waktu ketika bunga sakura bermekaran di Jepang, menarik wisatawan dari seluruh dunia.";
         break;
+      case "rainy":
+        funFactContent.textContent = "Tahukah Anda? Musim hujan membantu mengisi kembali sumber air, tetapi juga dapat menyebabkan banjir di beberapa wilayah.";
+        break;
       default:
         funFactContent.textContent = "Fakta menarik tidak tersedia untuk musim ini.";
     }
@@ -84,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
       summer: "music/summer.mp3",
       gugur: "music/gugur.mp3",
       semi: "music/semi.mp3",
+      rainy: "music/rainy.mp3", // Tambahkan musik untuk musim hujan
     };
 
     if (!backgroundMusic) {
@@ -110,14 +114,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const quizQuestions = [
     {
-      question: "Apa yang terjadi pada daun di musim gugur?",
-      options: ["Berubah warna dan gugur", "Bermekaran", "Tumbuh lebih lebat", "Tidak ada perubahan"],
-      correct: 0,
+      question: "Musim semi terjadi pada bulan?",
+      options: ["Juni - Agustus", "September - November", "Maret - Mei", "Desember - Februari"],
+      correct: 2,
     },
     {
-      question: "Apa ciri khas musim dingin?",
-      options: ["Salju", "Bunga bermekaran", "Daun gugur", "Cuaca panas"],
-      correct: 0,
+      question: "Apa yang menjadi tanda utama datangnya musim gugur?",
+      options: ["Hujan turun setiap hari", "Salju mulai turun", "Daun-daun berubah warna dan berguguran", "Matahari bersinar lebih lama"],
+      correct: 2,
     },
     {
       question: "Apa yang sering terjadi di musim panas?",
@@ -128,6 +132,16 @@ document.addEventListener("DOMContentLoaded", () => {
       question: "Apa yang sering terjadi di musim semi?",
       options: ["Bunga bermekaran", "Salju turun", "Daun gugur", "Cuaca sangat panas"],
       correct: 0,
+    },
+    {
+      question: "Negara mana yang mengalami empat musim?",
+      options: ["Indonesia", "Malaysia", "Singapura", "Jepang"],
+      correct: 3,
+    },
+    {
+      question: "Apa yang menjadi penyebab utama terjadinya musim di Bumi?",
+      options: ["Perubahan jarak Bumi ke Matahari", "Kemiringan sumbu Bumi saat mengorbit Matahari", "Rotasi Bumi yang semakin cepat", "Pengaruh bulan terhadap Bumi"],
+      correct: 1,
     },
   ];
 
