@@ -449,6 +449,21 @@ body.dark #team-section p.text-gray-600 {
   }
 }
 
+/* Gaya untuk tombol "Sembunyikan Anggota" */
+#hide-team-button {
+  z-index: 10; /* Pastikan tombol berada di atas elemen lainnya */
+}
+
+/* Responsif untuk perangkat kecil */
+@media (max-width: 768px) {
+  #hide-team-button {
+    top: 2rem; /* Sesuaikan posisi tombol pada perangkat kecil */
+    right: 2rem;
+    font-size: 0.9rem; /* Kurangi ukuran font */
+    padding: 0.5rem 1rem; /* Sesuaikan padding */
+  }
+}
+
 /* Gaya untuk musim hujan */
 #rainy {
   background-image: url("background/rainy.gif"); /* Gambar latar untuk musim hujan */

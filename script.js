@@ -290,6 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const teamSection = document.getElementById("team-section");
   const showTeamButton = document.getElementById("show-team-button");
+  const hideTeamButton = document.getElementById("hide-team-button");
 
   // Event listener untuk tombol "Tampilkan Anggota"
   showTeamButton.addEventListener("click", () => {
@@ -301,6 +302,13 @@ document.addEventListener("DOMContentLoaded", () => {
       showTeamButton.textContent = "Tampilkan Anggota";
     }
   });
+
+  if (hideTeamButton) {
+    hideTeamButton.addEventListener("click", () => {
+      teamSection.classList.add("hidden");
+      showTeamButton.textContent = "Tampilkan Anggota";
+    });
+  }
 
   let touchStartX = 0; // Posisi awal sentuhan
   let touchEndX = 0; // Posisi akhir sentuhan
